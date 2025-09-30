@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piyush Sen - Quantitative Finance Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success-color: #059669;
+            --success-dark: #047857;
+            --purple-color: #7c3aed;
+            --purple-dark: #6d28d9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 32px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --success-color: #10b981;
+            --success-dark: #059669;
+            --purple-color: #8b5cf6;
+            --purple-dark: #7c3aed;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --border-color: rgba(51, 65, 85, 0.8);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
 
         * {
             margin: 0;
@@ -14,12 +50,33 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.65;
-            color: #1a202c;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
             min-height: 100vh;
             font-weight: 400;
+            transition: var(--transition);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: var(--transition);
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
         }
 
         .container {
@@ -29,49 +86,35 @@
         }
 
         header {
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 16px;
-            padding: 48px;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 60px 48px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.8s;
-        }
-
-        header:hover::before {
-            left: 100%;
-        }
-
         .hero-title {
-            font-size: 3.8em;
-            font-weight: 600;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
+            font-size: 4.2em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 12px;
-            letter-spacing: -0.025em;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             animation: fadeInUp 1s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.35em;
-            color: #64748b;
-            margin-bottom: 24px;
+            font-size: 1.5em;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
             font-weight: 500;
             letter-spacing: -0.01em;
             animation: fadeInUp 1s ease-out 0.2s both;
@@ -80,7 +123,7 @@
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
@@ -88,57 +131,49 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: rgba(248, 250, 252, 0.9);
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            border-radius: 12px;
-            transition: all 0.25s ease;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: var(--transition);
             text-decoration: none;
-            color: #475569;
+            color: var(--text-secondary);
             font-weight: 500;
-            font-size: 0.95em;
+            font-size: 1em;
+        }
+
+        .contact-item i {
+            font-size: 1.2em;
+            color: var(--primary-color);
         }
 
         .contact-item:hover {
-            background: rgba(241, 245, 249, 1);
-            border-color: rgba(148, 163, 184, 0.4);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            color: #334155;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-primary);
+            color: var(--text-primary);
         }
 
         .section {
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             padding: 48px;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease-out forwards;
         }
 
-        .section:nth-child(3) { 
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
-            animation-delay: 0.2s; 
-        }
-        .section:nth-child(4) { 
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
-            animation-delay: 0.4s; 
-        }
-        .section:nth-child(5) { 
-            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 50%, #f3e8ff 100%);
-            animation-delay: 0.6s; 
-        }
-
         .section h2 {
-            font-size: 2.25em;
-            margin-bottom: 32px;
-            color: #1e293b;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--text-primary);
             font-weight: 700;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.02em;
             position: relative;
             display: inline-block;
         }
@@ -148,241 +183,196 @@
             position: absolute;
             bottom: -8px;
             left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
             border-radius: 2px;
-            transition: width 0.5s ease;
+            transition: var(--transition);
         }
 
         .section:hover h2::after {
             width: 100%;
         }
 
-        .work-grid {
+        .work-grid, .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
-        .work-item {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            padding: 28px;
-            border-radius: 12px;
-            border-left: 4px solid #2563eb;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            transition: all 0.25s ease;
+        .work-item, .project-item {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .work-item::before {
+        .work-item::before, .project-item::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
+            left: 0;
+            width: 4px;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
-            transition: left 0.6s;
+            background: var(--primary-color);
+            transition: var(--transition);
         }
 
-        .work-item:hover::before {
-            left: 100%;
+        .work-item:hover::before, .project-item:hover::before {
+            width: 100%;
+            opacity: 0.1;
         }
 
-        .work-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
-            border-left-color: #1d4ed8;
-            border-color: rgba(148, 163, 184, 0.4);
+        .work-item:hover, .project-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
         }
 
-        .work-item h3 {
-            font-size: 1.35em;
-            margin-bottom: 12px;
-            color: #1e293b;
+        .work-item h3, .project-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 16px;
+            color: var(--text-primary);
             font-weight: 600;
             letter-spacing: -0.01em;
         }
 
-        .work-item p {
-            color: #64748b;
-            margin-bottom: 12px;
-            font-weight: 400;
+        .work-item p, .project-item p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
         }
 
         .date {
-            font-size: 0.875em;
-            color: #94a3b8;
-            font-style: normal;
-            font-weight: 500;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-        }
-
-        .link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            padding: 10px 18px;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
             font-size: 0.9em;
+            color: var(--text-secondary);
             font-weight: 500;
-            letter-spacing: -0.01em;
-            transition: all 0.25s ease;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .link:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .project-item {
-            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-            padding: 32px;
-            border-radius: 12px;
-            border-left: 4px solid #059669;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.05), transparent);
-            transition: left 0.6s;
-        }
-
-        .project-item:hover::before {
-            left: 100%;
-        }
-
-        .project-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(5, 150, 105, 0.12);
-            border-left-color: #047857;
-            border-color: rgba(148, 163, 184, 0.4);
-        }
-
-        .project-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 16px;
-            color: #1e293b;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
         .tech-tag {
-            display: inline-block;
-            background: rgba(5, 150, 105, 0.1);
-            color: #047857;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.8em;
-            margin: 4px 6px 4px 0;
-            font-weight: 500;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-
-        .accuracy {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            font-weight: 600;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 12px;
             font-size: 0.9em;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            transition: var(--transition);
         }
 
-        .price-comparison {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid rgba(148, 163, 184, 0.3);
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
-        .price-row {
+        .metrics {
+            background: var(--bg-primary);
+            padding: 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 12px 0;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.9em;
-            color: #475569;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .price-row span:first-child {
-            color: #64748b;
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
             font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
         }
 
-        .price-row span:last-child {
+        .metric-value {
             font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
         }
 
-        .research-item {
-            background: linear-gradient(135deg, #ffffff 0%, #fdf4ff 100%);
-            padding: 32px;
+        .metric-value.success {
+            color: var(--success-color);
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
             border-radius: 12px;
-            border-left: 4px solid #7c3aed;
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            transition: all 0.25s ease;
-        }
-
-        .research-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
-            border-color: rgba(148, 163, 184, 0.4);
-        }
-
-        .research-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 16px;
-            color: #1e293b;
             font-weight: 600;
-            letter-spacing: -0.02em;
+            font-size: 0.95em;
+            transition: var(--transition);
+            margin-top: 20px;
         }
 
-        .research-item p {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 16px;
+        .link-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
         }
 
-        .research-item .tech-tag {
-            background: rgba(124, 58, 237, 0.1);
-            color: #6d28d9;
-            border: 1px solid rgba(124, 58, 237, 0.2);
+        .link-button i {
+            font-size: 1.1em;
         }
 
-        .research-item .accuracy {
-            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(37, 99, 235, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .background-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 50%);
         }
 
         @keyframes fadeInUp {
@@ -397,80 +387,50 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            header {
+                padding: 40px 24px;
+            }
+
             .hero-title {
-                font-size: 2.5em;
+                font-size: 3em;
             }
-            
-            .contact-info {
-                gap: 15px;
+
+            .hero-subtitle {
+                font-size: 1.2em;
             }
-            
+
             .section {
-                padding: 25px;
+                padding: 32px 24px;
             }
-            
-            .section h2 {
-                font-size: 2em;
+
+            .work-grid, .project-grid {
+                grid-template-columns: 1fr;
             }
-        }
 
-        .floating-shapes {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(226, 232, 240, 0.6);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            top: 15%;
-            left: 8%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            top: 65%;
-            right: 12%;
-            animation-delay: 3s;
-        }
-
-        .shape:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            bottom: 25%;
-            left: 15%;
-            animation-delay: 6s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.6;
+            .contact-info {
+                flex-direction: column;
             }
-            50% { 
-                transform: translateY(-30px) rotate(180deg);
-                opacity: 0.3;
+
+            .contact-item {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
     </div>
+
+    <div class="background-gradient"></div>
 
     <div class="container">
         <header>
@@ -478,15 +438,15 @@
             <p class="hero-subtitle">Quantitative Finance Professional</p>
             <div class="contact-info">
                 <a href="mailto:piyush2@illinois.edu" class="contact-item">
-                    <span>📧</span>
+                    <i class="fas fa-envelope"></i>
                     <span>piyush2@illinois.edu</span>
                 </a>
                 <a href="https://www.linkedin.com/in/piyush-sen-bb645151/" class="contact-item">
-                    <span>💼</span>
+                    <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
                 <a href="tel:+14479026585" class="contact-item">
-                    <span>📱</span>
+                    <i class="fas fa-phone"></i>
                     <span>+1.447.902.6585</span>
                 </a>
             </div>
@@ -498,20 +458,29 @@
                 <div class="work-item">
                     <h3>PVR Limited</h3>
                     <p>Rating Rationale for Commercial Paper programme</p>
-                    <p class="date">Published by ICRA Ltd • May 23, 2017</p>
-                    <a href="https://www.icra.in/Rationale/ShowRationaleReport?Id=35551" target="_blank" class="link">View Rating Rationale</a>
+                    <span class="date"><i class="far fa-calendar-alt"></i> May 23, 2017 • ICRA Ltd</span>
+                    <a href="https://www.icra.in/Rationale/ShowRationaleReport?Id=35551" target="_blank" class="link-button">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Rating Rationale
+                    </a>
                 </div>
                 <div class="work-item">
                     <h3>DAV College Trust</h3>
                     <p>Rating Rationale for Bank Loans</p>
-                    <p class="date">Published by ICRA Ltd • July 10, 2017</p>
-                    <a href="https://www.icra.in/Rating/ShowRationalReportFilePdf/37568" target="_blank" class="link">View Rating Rationale</a>
+                    <span class="date"><i class="far fa-calendar-alt"></i> July 10, 2017 • ICRA Ltd</span>
+                    <a href="https://www.icra.in/Rating/ShowRationalReportFilePdf/37568" target="_blank" class="link-button">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Rating Rationale
+                    </a>
                 </div>
                 <div class="work-item">
                     <h3>Saya Buildcon Consortium</h3>
                     <p>Rating Rationale for Bank Loans</p>
-                    <p class="date">Published by ICRA Ltd • May 18, 2017</p>
-                    <a href="https://www.icra.in/Rationale/ShowRationaleReport?Id=35467" target="_blank" class="link">View Rating Rationale</a>
+                    <span class="date"><i class="far fa-calendar-alt"></i> May 18, 2017 • ICRA Ltd</span>
+                    <a href="https://www.icra.in/Rationale/ShowRationaleReport?Id=35467" target="_blank" class="link-button">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Rating Rationale
+                    </a>
                 </div>
             </div>
         </div>
@@ -521,142 +490,180 @@
             <div class="project-grid">
                 <div class="project-item">
                     <h3>Monte Carlo Structured Note Pricing</h3>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Monte Carlo</span>
-                    <span class="tech-tag">Derivatives</span>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Monte Carlo</span>
+                        <span class="tech-tag">Derivatives</span>
+                    </div>
                     <p>Implemented Monte Carlo simulation for pricing a 2-year Contingent Income Auto-Callable Note linked to three underlying equities.</p>
-                    <div class="price-comparison">
-                        <div class="price-row">
-                            <span>Term Sheet Price:</span>
-                            <span><strong>$959.30</strong></span>
+                    <div class="metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Term Sheet Price</span>
+                            <span class="metric-value">$959.30</span>
                         </div>
-                        <div class="price-row">
-                            <span>Model Price:</span>
-                            <span><strong>$952.91</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Model Price</span>
+                            <span class="metric-value">$952.91</span>
                         </div>
-                        <div class="price-row">
-                            <span>Accuracy:</span>
-                            <span><strong style="color: #059669;">99.33%</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Accuracy</span>
+                            <span class="metric-value success">99.33%</span>
                         </div>
                     </div>
-                    <a href="https://github.com/pi-sen/StructuredNote_MonteCarlo" target="_blank" class="link">View Code</a>
+                    <a href="https://github.com/pi-sen/StructuredNote_MonteCarlo" target="_blank" class="link-button">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
                 </div>
 
                 <div class="project-item">
                     <h3>Binomial Tree Option Pricing</h3>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Binomial Trees</span>
-                    <span class="tech-tag">Options</span>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Binomial Trees</span>
+                        <span class="tech-tag">Options</span>
+                    </div>
                     <p>Developed Binomial Tree model for pricing Contingent Coupon Auto-Callable Notes linked to common stock.</p>
-                    <div class="price-comparison">
-                        <div class="price-row">
-                            <span>Term Sheet Price:</span>
-                            <span><strong>$9.76</strong></span>
+                    <div class="metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Term Sheet Price</span>
+                            <span class="metric-value">$9.76</span>
                         </div>
-                        <div class="price-row">
-                            <span>Model Price:</span>
-                            <span><strong>$9.74</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Model Price</span>
+                            <span class="metric-value">$9.74</span>
                         </div>
-                        <div class="price-row">
-                            <span>Accuracy:</span>
-                            <span><strong style="color: #059669;">99.79%</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Accuracy</span>
+                            <span class="metric-value success">99.79%</span>
                         </div>
                     </div>
-                    <a href="https://github.com/pi-sen/Binomial_Tree_OptionPricing" target="_blank" class="link">View Code</a>
+                    <a href="https://github.com/pi-sen/Binomial_Tree_OptionPricing" target="_blank" class="link-button">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
                 </div>
 
                 <div class="project-item">
                     <h3>Asian Options Pricing</h3>
-                    <span class="tech-tag">R</span>
-                    <span class="tech-tag">Monte Carlo</span>
-                    <span class="tech-tag">Control Variates</span>
+                    <div class="tech-stack">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Monte Carlo</span>
+                        <span class="tech-tag">Control Variates</span>
+                    </div>
                     <p>Implemented Asian option pricing using Monte Carlo simulation with variance reduction techniques including Control Variate method.</p>
-                    <div class="price-comparison">
-                        <div class="price-row">
-                            <span>Control Variate SE (1K sims):</span>
-                            <span><strong>0.009328</strong></span>
+                    <div class="metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Control Variate SE (1K sims)</span>
+                            <span class="metric-value">0.009328</span>
                         </div>
-                        <div class="price-row">
-                            <span>Arithmetic SE (1M sims):</span>
-                            <span><strong>0.009499</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Arithmetic SE (1M sims)</span>
+                            <span class="metric-value">0.009499</span>
                         </div>
-                        <div class="price-row">
-                            <span>Efficiency Gain:</span>
-                            <span><strong style="color: #059669;">1000x Faster</strong></span>
+                        <div class="metric-row">
+                            <span class="metric-label">Efficiency Gain</span>
+                            <span class="metric-value success">1000x Faster</span>
                         </div>
                     </div>
-                    <a href="https://github.com/pi-sen/Option_Pricing" target="_blank" class="link">View Code</a>
+                    <a href="https://github.com/pi-sen/Option_Pricing" target="_blank" class="link-button">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
                 </div>
 
                 <div class="project-item">
                     <h3>Convertible Bond Pricing</h3>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Looking Backward Algorithm</span>
-                    <span class="tech-tag">Hybrid Securities</span>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Looking Backward Algorithm</span>
+                        <span class="tech-tag">Hybrid Securities</span>
+                    </div>
                     <p>Built sophisticated pricing model for convertible bonds with n-out-of-m soft call provisions using advanced "Looking Backward" algorithm.</p>
-                    <a href="https://github.com/pi-sen/Convertible-Bond" target="_blank" class="link">View Code</a>
+                    <a href="https://github.com/pi-sen/Convertible-Bond" target="_blank" class="link-button">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="section">
             <h2>Research</h2>
-            <div class="research-item">
+            <div class="project-item">
                 <h3>Machine Learning for Credit Risk Prediction</h3>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Machine Learning</span>
-                <span class="tech-tag">Credit Risk</span>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Credit Risk</span>
+                </div>
                 <p>Developed and implemented a machine learning model to predict credit risk of customers at a German bank, achieving exceptional performance in risk assessment.</p>
-                <div class="accuracy">Precision: 91%</div>
-                <a href="https://github.com/pi-sen/Machine-Learning---Credit-Risk" target="_blank" class="link">View Code</a>
+                <div class="metrics">
+                    <div class="metric-row">
+                        <span class="metric-label">Model Precision</span>
+                        <span class="metric-value success">91%</span>
+                    </div>
+                </div>
+                <a href="https://github.com/pi-sen/Machine-Learning---Credit-Risk" target="_blank" class="link-button">
+                    <i class="fab fa-github"></i>
+                    View Code
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for internal links
-            const links = document.querySelectorAll('a[href^="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress-bar');
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = `${scrolled}%`;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
+        }, observerOptions);
 
-            // Add intersection observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Add hover effects for project items
-            document.querySelectorAll('.project-item, .work-item').forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
